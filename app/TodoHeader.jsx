@@ -1,12 +1,15 @@
 import { useState } from 'react'
+import { Keyboard } from 'react-native'
 import { Input, Button, HStack } from 'native-base'
 
-export default function TodoHeader({ setTodoItems, user }) {
+export default function TodoHeader({ setTodoItems, user, setLoading }) {
 
   const [newItem, setNewItem] = useState('')
 
   const addNewItem = () => {
     if(newItem.length < 3) return // checks for valid entry
+    setLoading(true)
+    Keyboard.dismiss()
     const newTodoItem = {
       uid: user.uid,
       title: newItem,
@@ -21,7 +24,10 @@ export default function TodoHeader({ setTodoItems, user }) {
       .then(res => res.json())
       .then(setTodoItems)
       .catch(alert)
-      .finally(() => setNewItem(''))
+      .finally(() => {
+        setNewItem('')
+        setLoading(false)
+      })
 
   }
 
