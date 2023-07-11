@@ -21,8 +21,7 @@ export default function TodoHeader({ setTodoItems, user }) {
       .then(res => res.json())
       .then(setTodoItems)
       .catch(alert)
-      .finally(() => setNewItem(''))
-
+      .finally(() => setNewItem('')) // clear the input box
   }
 
   return (

@@ -16,7 +16,7 @@ export default function App() {
   return (
     <NativeBaseProvider>
       <Box bg="darkBlue.900" alignItems="center" justifyContent="center" flex={1}>
-        <Text color="darkBlue.400" fontSize="4xl">Chekov Todo</Text>
+        <Text color="primary.400" fontSize="4xl">Chekov Todo</Text>
         {!user
           ? <Login setUser={setUser} />
           : <TodoList user={user} />
