@@ -22,7 +22,7 @@ export default function App() {
     <NativeBaseProvider>
       <KeyboardAvoidingView
         h={{ base: "900px", lg: "auto " }}
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        behavior="padding"
       >
         <Box
           bg="darkBlue.900"
@@ -30,7 +30,7 @@ export default function App() {
           justifyContent="center"
           flex={1}
         >
-          <Text color="darkBlue.400" fontSize="4xl">
+          <Text color="primary.400" fontSize="4xl">
             Chekov Todo
           </Text>
           {!user ? <Login setUser={setUser} /> : <TodoList user={user} />}
